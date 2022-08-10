@@ -46,4 +46,57 @@ GROUP BY product_id ;
 
 ##### 力扣608 树节点   
 
-![img_289.png](img_289.png)      
+![img_289.png](img_289.png)       
+
+
+
+##### 176. 第二高的薪水
+   
+![img_291.png](img_291.png)    
+
+
+答案： 
+第一种是分页查询或者叫嵌套子循环，这样可以符合题意，不存在就返回null，用了临时表的性质   
+
+
+
+![img_290.png](img_290.png)    
+
+###### IFNULL
+![img_292.png](img_292.png)     
+
+
+NULLIF为ORACLE函数   
+###### 解析①：limit 和 offset用法      
+
+
+有的时候我们在学习或者工作中会使用到SQL语句，那么介绍一下limit和offset的使用方法。
+mysql里分页一般用limit来实现，例如：
+
+1、select* from user limit 3
+
+表示直接取前三条数据
+
+2、select * from user limit 1,3;
+
+表示取1后面的第2,3,4三条条数据
+
+3、select * from user limit 3 offset 1;
+
+表示取1后面第2,3,4三条条数据
+
+解释：
+
+1、当 limit后面跟一个参数的时候，该参数表示要取的数据的数量
+
+例如 select* from user limit 3 表示直接取前三条数据
+
+2、当limit后面跟两个参数的时候，第一个数表示要跳过的数量，后一位表示要取的数量,例如
+
+select * from user limit 1,3;
+
+就是跳过1条数据,从第2条数据开始取，取3条数据，也就是取2,3,4三条数据
+
+3、当 limit和offset组合使用的时候，limit后面只能有一个参数，表示要取的的数量,offset表示要跳过的数量 。
+
+
