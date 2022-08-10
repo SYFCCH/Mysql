@@ -99,4 +99,4 @@ select * from user limit 1,3;
 
 3、当 limit和offset组合使用的时候，limit后面只能有一个参数，表示要取的的数量,offset表示要跳过的数量 。
 
-
+  
