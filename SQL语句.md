@@ -106,4 +106,25 @@ select * from user limit 1,3;
 
 # DOS窗口中的\G \g
 \g 的作用是分号和在sql语句中写’;’是等效的    
-\G 的作用是将查到的结构旋转90度变成纵向(可以将一个很长的行转为好看的格式)    
+\G 的作用是将查到的结构旋转90度变成纵向(可以将一个很长的行转为好看的格式) 
+
+
+
+
+
+
+
+
+**三种方法统计重复：**
+
+1. having ＋聚合函数 > select Email from Person group by Email having count(Email) > 1;
+
+2. 自链接 > select DISTINCT p1.Email from Person p1, Person p2 where p1.Email = p2.Email and p1.Id != p2.Id;
+
+3. 子表查询 > select Email from (select count(1) as t, Email from Person group by Email) r where r.t > 1;   
+
+
+
+count 是聚合函数，使用 count(*) 要比count(字段) 要快，省略了判断字段是否为 null 的过程，mysql 对 count(*) 做了优化。    
+    
+
